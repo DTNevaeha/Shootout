@@ -310,4 +310,4 @@ sides = 16
 material = ExtResource("2_23p1d")
 
 [node name="Enemy" parent="." instance=ExtResource("4_k5skl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, -16)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.997, 1.03211, -16.0118)
