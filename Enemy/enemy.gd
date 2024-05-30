@@ -1,19 +1,28 @@
 extends CharacterBody3D
-
+class_name Enemy
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
+@export var attack_damage := 20
 @export var attack_range := 1.5
+@export var max_hitpoints := 100
 
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+var aggro_range := 12.0
 var player
 var player_nearby := false
-var aggro_range := 12.0
+
+var hitpoints: int = max_hitpoints:
+	set(value):
+		hitpoints = value
+		if hitpoints <= 0:
+			queue_free()
+		player_nearby = true
 
 
 func _ready() -> void:
@@ -61,3 +70,4 @@ func look_at_target(direction: Vector3) -> void:
 
 func attack() -> void:
 	print("Enemy Attack!")
+	player.hitpoints -= attack_damage
