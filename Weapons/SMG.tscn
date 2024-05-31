@@ -26,9 +26,9 @@ scale_curve = SubResource("CurveTexture_wc5qt")
 [sub_resource type="BoxMesh" id="BoxMesh_wwp17"]
 size = Vector3(0.1, 0.1, 0.1)
 
-[node name="SMG" node_paths=PackedStringArray("weapon_mesh", "muzzle_flash") instance=ExtResource("1_1f0d0")]
-weapon_mesh = NodePath("SMG")
+[node name="SMG" node_paths=PackedStringArray("muzzle_flash", "weapon_mesh") instance=ExtResource("1_1f0d0")]
 muzzle_flash = NodePath("MuzzleFlash")
+weapon_mesh = NodePath("SMG")
 
 [node name="SMG" parent="." index="1" instance=ExtResource("2_1pp2t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.714, -0.302, -1)
