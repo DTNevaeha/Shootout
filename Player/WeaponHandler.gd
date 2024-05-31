@@ -28,6 +28,7 @@ func equip(active_weapon: Node3D) -> void:
             child.visible = false
             child.set_process(false)
 
+
 # Allows the player to scroll their mouse wheel to change weapons
 func next_weapon() -> void:
     var index = get_current_index()

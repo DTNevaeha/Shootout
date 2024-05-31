@@ -9,6 +9,7 @@ const SPEED = 5.0
 @onready var camera_pivot: Node3D = $CameraPivot
 @onready var damage_animation_player: AnimationPlayer = $DamageTexture/DamageAnimationPlayer
 @onready var game_over_menu: Control = $GameOverMenu
+@onready var ammo_handler: Node = %AmmoHandler
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
