@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://Player/SmoothCamera.gd" id="2_wxyhh"]
 [ext_resource type="Script" path="res://Player/Crosshair.gd" id="3_brjb5"]
 [ext_resource type="PackedScene" uid="uid://c5fj2fg1v3oyb" path="res://Weapons/Rifle.tscn" id="3_edukq"]
+[ext_resource type="Script" path="res://Player/WeaponHandler.gd" id="3_ng4l6"]
 [ext_resource type="PackedScene" uid="uid://duvo08au3rw41" path="res://Weapons/SMG.tscn" id="3_ns35k"]
-[ext_resource type="Script" path="res://Player/WeaponHandle.gd" id="3_v8761"]
 [ext_resource type="Texture2D" uid="uid://b558ox6x7qaup" path="res://Player/damage.png" id="5_d0sxa"]
 [ext_resource type="PackedScene" uid="uid://bkbx50kom1o3q" path="res://Player/game_over_menu.tscn" id="6_h0lcj"]
 
@@ -114,7 +114,7 @@ cull_mask = 2
 fov = 40.0
 
 [node name="WeaponHandler" type="Node3D" parent="SubViewportContainer/SubViewport/WeaponCamera" node_paths=PackedStringArray("weapon_1", "weapon_2")]
-script = ExtResource("3_v8761")
+script = ExtResource("3_ng4l6")
 weapon_1 = NodePath("Rifle")
 weapon_2 = NodePath("SMG")
 
@@ -128,6 +128,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Crosshair" type="Control" parent="CenterContainer"]
 layout_mode = 2
@@ -142,6 +143,7 @@ grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.000322029
 pivot_offset = Vector2(576, 324)
+mouse_filter = 2
 texture = ExtResource("5_d0sxa")
 
 [node name="DamageAnimationPlayer" type="AnimationPlayer" parent="DamageTexture"]
