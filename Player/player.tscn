@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c0srbsbevngpy"]
+[gd_scene load_steps=17 format=3 uid="uid://c0srbsbevngpy"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_fspgh"]
 [ext_resource type="Script" path="res://Player/SmoothCamera.gd" id="2_wxyhh"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b558ox6x7qaup" path="res://Player/damage.png" id="5_d0sxa"]
 [ext_resource type="Script" path="res://Player/AmmoHandler.gd" id="6_3scxj"]
 [ext_resource type="PackedScene" uid="uid://bkbx50kom1o3q" path="res://Player/game_over_menu.tscn" id="6_h0lcj"]
+[ext_resource type="FontFile" uid="uid://3j2lri234ycu" path="res://Assets/The Wild Breath of Zelda.otf" id="9_b0xph"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_uhf4g"]
 
@@ -75,6 +76,10 @@ _data = {
 "TakeDamage": SubResource("Animation_phea4")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_opqfq"]
+font = ExtResource("9_b0xph")
+font_size = 64
+
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_fspgh")
 
@@ -126,8 +131,9 @@ ammo_handler = NodePath("../../AmmoHandler")
 ammo_handler = NodePath("../../AmmoHandler")
 ammo_type = 1
 
-[node name="AmmoHandler" type="Node" parent="SubViewportContainer/SubViewport/WeaponCamera"]
+[node name="AmmoHandler" type="Node" parent="SubViewportContainer/SubViewport/WeaponCamera" node_paths=PackedStringArray("ammo_label")]
 script = ExtResource("6_3scxj")
+ammo_label = NodePath("../../../../MarginContainer/AmmoLabel")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 15
@@ -158,6 +164,27 @@ libraries = {
 "": SubResource("AnimationLibrary_lv2p8")
 }
 autoplay = "RESET"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="AmmoLabel" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "999"
+label_settings = SubResource("LabelSettings_opqfq")
 
 [node name="GameOverMenu" parent="." instance=ExtResource("6_h0lcj")]
 visible = false
