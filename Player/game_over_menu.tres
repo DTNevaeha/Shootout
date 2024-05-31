@@ -19,7 +19,6 @@ texture_source = 1
 code = "shader_type canvas_item;
 render_mode blend_mix;
 
-uniform sampler2D Screen : source_color, filter_linear_mipmap, hint_screen_texture;
 
 
 
@@ -34,7 +33,7 @@ void fragment() {
 
 	vec4 n_out2p0;
 // Texture2D:2
-	n_out2p0 = textureLod(Screen, n_out3p0, n_out4p0);
+	n_out2p0 = vec4(0.0);
 
 
 // Output:0
@@ -43,7 +42,7 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-1000.79, -581.242)
+graph_offset = Vector2(-1066.79, -300)
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2(220, 100)
@@ -54,5 +53,5 @@ nodes/fragment/3/position = Vector2(-480, 60)
 nodes/fragment/4/node = SubResource("VisualShaderNodeFloatConstant_mpwm8")
 nodes/fragment/4/position = Vector2(-340, 140)
 nodes/fragment/5/node = SubResource("VisualShaderNodeTexture2DParameter_k55yk")
-nodes/fragment/5/position = Vector2(-480, 220)
-nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0, 3, 0, 2, 0, 4, 0, 2, 1, 5, 0, 2, 2)
+nodes/fragment/5/position = Vector2(-425.26, 354.326)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0, 3, 0, 2, 0, 4, 0, 2, 1)

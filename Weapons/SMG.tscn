@@ -27,6 +27,7 @@ scale_curve = SubResource("CurveTexture_wc5qt")
 size = Vector3(0.1, 0.1, 0.1)
 
 [node name="SMG" node_paths=PackedStringArray("muzzle_flash", "weapon_mesh") instance=ExtResource("1_1f0d0")]
+automatic = true
 muzzle_flash = NodePath("MuzzleFlash")
 weapon_mesh = NodePath("SMG")
 
