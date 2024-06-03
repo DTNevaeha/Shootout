@@ -2,7 +2,6 @@ extends CharacterBody3D
 class_name Enemy
 
 const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
 
 @export var attack_damage := 20
 @export var attack_range := 1.5
