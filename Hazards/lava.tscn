@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2k87dlaoeyde"]
+
+[ext_resource type="Material" uid="uid://c8x805q51jyb" path="res://Hazards/LavaMaterial.tres" id="1_cxf7q"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_34pxt"]
+material = ExtResource("1_cxf7q")
+size = Vector2(10, 10)
+
+[node name="Lava" type="Area3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0537405, -0.0221157, -0.0123205)
+mesh = SubResource("PlaneMesh_34pxt")
