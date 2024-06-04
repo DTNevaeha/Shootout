@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://q632txilsnd6"
-path.s3tc="res://.godot/imported/prototype-texture.png-b0cee8adf8425a207c773a857a055446.s3tc.ctex"
+uid="uid://dd4jbnkp3b8jt"
+path.s3tc="res://.godot/imported/Screen_Palette-Base-SF.png-18d19b5367914f39856315c0eb69fe6b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "2e9fd99e77a6d613250365dfd93b3567"
+}
 
 [deps]
 
-source_file="res://Levels/Materials/prototype-texture.png"
-dest_files=["res://.godot/imported/prototype-texture.png-b0cee8adf8425a207c773a857a055446.s3tc.ctex"]
+source_file="res://Assets/36_RR_G3D - Props/Screen_Palette-Base-SF.png"
+dest_files=["res://.godot/imported/Screen_Palette-Base-SF.png-18d19b5367914f39856315c0eb69fe6b.s3tc.ctex"]
 
 [params]
 
