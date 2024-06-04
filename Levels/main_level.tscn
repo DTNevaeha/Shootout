@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dber0vy30ucm7"]
+[gd_scene load_steps=30 format=3 uid="uid://dber0vy30ucm7"]
 
 [ext_resource type="Material" uid="uid://bihkaei5s052j" path="res://Levels/Materials/GrayMaterial.tres" id="1_mo2sw"]
 [ext_resource type="Texture2D" uid="uid://cj6lpkwhkbbkv" path="res://Levels/level-floorplan.png" id="1_qrvy6"]
@@ -9,12 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://dm1gbcjpghcr8" path="res://Assets/36_RR_G3D - Props/Support.glb" id="7_12ldk"]
 [ext_resource type="PackedScene" uid="uid://d2k87dlaoeyde" path="res://Hazards/lava.tscn" id="7_cywwp"]
 [ext_resource type="Material" uid="uid://c8x805q51jyb" path="res://Hazards/LavaMaterial.tres" id="8_n3po8"]
+[ext_resource type="PackedScene" uid="uid://d348ilqausud4" path="res://Assets/36_RR_G3D - Props/Screen.glb" id="8_rq6n3"]
+[ext_resource type="PackedScene" uid="uid://dxp561ajbgqu" path="res://Assets/36_RR_G3D - Props/Generator.glb" id="9_x7g17"]
 [ext_resource type="PackedScene" uid="uid://bgw258jpwctbi" path="res://Assets/36_RR_G3D - Props/Floor.glb" id="10_lilxf"]
 [ext_resource type="PackedScene" uid="uid://bjud8hmspfy7a" path="res://Assets/36_RR_G3D - Props/FloorTile.glb" id="11_x0mwl"]
 [ext_resource type="PackedScene" uid="uid://2qxaxuaqca0c" path="res://Assets/36_RR_G3D - Props/Cap.glb" id="12_53lnk"]
 [ext_resource type="PackedScene" uid="uid://1gkjym2n123m" path="res://Assets/36_RR_G3D - Props/Pillar.glb" id="13_1plw7"]
+[ext_resource type="PackedScene" uid="uid://c68km2f4ltyal" path="res://Assets/36_RR_G3D - Props/Light.glb" id="14_gnlh6"]
 [ext_resource type="PackedScene" uid="uid://bk8sq33i5m3xv" path="res://Assets/36_RR_G3D - Props/Pipes.glb" id="14_utsrk"]
 [ext_resource type="PackedScene" uid="uid://dqq12ha88qhj2" path="res://Assets/36_RR_G3D - Props/Vent.glb" id="15_axce5"]
+[ext_resource type="PackedScene" uid="uid://b32w21nxe1xr3" path="res://Assets/36_RR_G3D - Props/Monitor.glb" id="19_o3u2k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o773w"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -465,6 +469,59 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 1.55148, -10.0743)
 [node name="Support16" parent="NavigationRegion3D/CornerDecorations" instance=ExtResource("7_12ldk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 4.55148, -10.0743)
 
+[node name="GameObjects" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="Screen" parent="NavigationRegion3D/GameObjects" instance=ExtResource("8_rq6n3")]
+transform = Transform3D(1.41421, 0, -1.41421, 0, 2, 0, 1.41421, 0, 1.41421, -1, 1.3, 8)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/GameObjects/Screen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.141421, 0.05, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 2.0
+light_specular = 0.75
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.25
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="NavigationRegion3D/GameObjects/Screen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.141421, 0.05, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 2.0
+light_specular = 0.75
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.25
+
+[node name="Screen2" parent="NavigationRegion3D/GameObjects" instance=ExtResource("8_rq6n3")]
+transform = Transform3D(1.73205, 0, 1, 0, 2, 0, -1, 0, 1.73205, -31, 4.3, 17.8)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/GameObjects/Screen2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.141421, 0.05, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 2.0
+light_specular = 0.75
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.25
+
+[node name="Screen3" parent="NavigationRegion3D/GameObjects" instance=ExtResource("8_rq6n3")]
+transform = Transform3D(-1.78814e-07, 0, -2, 0, 2, 0, 2, 0, -1.78814e-07, 27, 4.3, -15.2)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/GameObjects/Screen3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.141421, 0.05, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 2.0
+light_specular = 0.75
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.25
+
+[node name="Generator" parent="NavigationRegion3D/GameObjects" instance=ExtResource("9_x7g17")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9, 1.6543, 8.0766)
+
+[node name="Generator2" parent="NavigationRegion3D/GameObjects" instance=ExtResource("9_x7g17")]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -19.1, 4.6543, 2.6766)
+
 [node name="LavaPools" type="Node3D" parent="."]
 
 [node name="Lava" parent="LavaPools" instance=ExtResource("7_cywwp")]
@@ -686,6 +743,102 @@ transform = Transform3D(-1.09278e-07, 2.5, 0, -2.5, -1.09278e-07, 0, 0, 0, 2.5, 
 [node name="Cap5" parent="Decoration/Ceiling" instance=ExtResource("12_53lnk")]
 transform = Transform3D(-1.09278e-07, 2.5, 0, -2.5, -1.09278e-07, 0, 0, 0, 2.5, 28, 6.3, 12)
 
+[node name="Light" parent="Decoration/Ceiling" instance=ExtResource("14_gnlh6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3, 9.33239)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Decoration/Ceiling/Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 2.0
+light_specular = 0.75
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.25
+
+[node name="Light2" parent="Decoration/Ceiling" instance=ExtResource("14_gnlh6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3, 17.3324)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Decoration/Ceiling/Light2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 2.0
+light_specular = 0.75
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.25
+
+[node name="Light3" parent="Decoration/Ceiling" instance=ExtResource("14_gnlh6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6, 6, 17.3324)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Decoration/Ceiling/Light3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 2.0
+light_specular = 0.75
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.25
+
+[node name="Light4" parent="Decoration/Ceiling" instance=ExtResource("14_gnlh6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6, 6, 9.33239)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Decoration/Ceiling/Light4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 2.0
+light_specular = 0.75
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.25
+
+[node name="Light5" parent="Decoration/Ceiling" instance=ExtResource("14_gnlh6")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.6, 6, 10.3324)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Decoration/Ceiling/Light5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 2.0
+light_specular = 0.75
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.25
+
+[node name="Light6" parent="Decoration/Ceiling" instance=ExtResource("14_gnlh6")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -29.6, 6, -4.66761)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Decoration/Ceiling/Light6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 2.0
+light_specular = 0.75
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.25
+
+[node name="Light7" parent="Decoration/Ceiling" instance=ExtResource("14_gnlh6")]
+transform = Transform3D(1.31134e-07, 0, -1, -1, -4.37114e-08, -1.31134e-07, -4.37114e-08, 1, -5.73206e-15, 26.4, 3, 15.0324)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Decoration/Ceiling/Light7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 2.0
+light_specular = 0.75
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.25
+
+[node name="Light8" parent="Decoration/Ceiling" instance=ExtResource("14_gnlh6")]
+transform = Transform3D(1.31134e-07, 0, -1, -1, 0, -1.31134e-07, 0, 1, 0, 28.4, 3, 15.0324)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Decoration/Ceiling/Light8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 2.0
+light_specular = 0.75
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.25
+
 [node name="Wall" type="Node3D" parent="Decoration"]
 
 [node name="Pillar2" parent="Decoration/Wall" instance=ExtResource("13_1plw7")]
@@ -777,6 +930,54 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 3, 7.4)
 
 [node name="Vent7" parent="Decoration/Wall" instance=ExtResource("15_axce5")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 33, 3, 7.4)
+
+[node name="Monitor" parent="Decoration/Wall" instance=ExtResource("19_o3u2k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1, 1, 11)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Decoration/Wall/Monitor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.358579, 0.05, 0.2)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 2.0
+light_specular = 0.75
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.25
+
+[node name="Monitor2" parent="Decoration/Wall" instance=ExtResource("19_o3u2k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.1, 1.4, 8)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Decoration/Wall/Monitor2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.358579, 0.05, 0.2)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 2.0
+light_specular = 0.75
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.25
+
+[node name="Monitor3" parent="Decoration/Wall" instance=ExtResource("19_o3u2k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.1, 4.4, 3)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Decoration/Wall/Monitor3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.358579, 0.05, 0.2)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 2.0
+light_specular = 0.75
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.25
+
+[node name="Monitor4" parent="Decoration/Wall" instance=ExtResource("19_o3u2k")]
+transform = Transform3D(-1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 27.2, 1.4, 15)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Decoration/Wall/Monitor4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.358579, 0.05, 0.2)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 2.0
+light_specular = 0.75
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.25
 
 [editable path="LavaPools/Lava"]
 [editable path="LavaPools/Lava2"]
