@@ -25,7 +25,6 @@ var hitpoints: int = max_hitpoints:
 			damage_animation_player.stop(false) # Reset the animation each time you take damage
 			damage_animation_player.play("TakeDamage")
 		hitpoints = value
-		print(hitpoints)
 		if hitpoints <= 0:
 			game_over_menu.game_over()
 
