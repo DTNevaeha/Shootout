@@ -551,12 +551,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -9)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35374, -0.0221157, -0.0123205)
 mesh = SubResource("PlaneMesh_c51ry")
 
+[node name="OmniLight3D" parent="LavaPools/Lava" index="1"]
+omni_range = 25.0
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LavaPools/Lava"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35374, -0.0221157, -0.0123205)
 shape = SubResource("ConvexPolygonShape3D_3ubux")
-
-[node name="OmniLight3D" parent="LavaPools/Lava" index="2"]
-omni_range = 25.0
 
 [node name="Lava2" parent="LavaPools" instance=ExtResource("7_cywwp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, -0.5, -4)
@@ -565,12 +565,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, -0.5, -4)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25374, -0.0221157, -0.0123205)
 mesh = SubResource("PlaneMesh_vcusd")
 
+[node name="OmniLight3D" parent="LavaPools/Lava2" index="1"]
+omni_range = 15.0
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LavaPools/Lava2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25374, -0.0221157, -0.0123205)
 shape = SubResource("ConvexPolygonShape3D_f7rjq")
-
-[node name="OmniLight3D" parent="LavaPools/Lava2" index="2"]
-omni_range = 15.0
 
 [node name="Lava3" parent="LavaPools" instance=ExtResource("7_cywwp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, -0.5, 7)
@@ -579,12 +579,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, -0.5, 7)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.022, 0.488)
 mesh = SubResource("PlaneMesh_u57a6")
 
+[node name="OmniLight3D" parent="LavaPools/Lava3" index="1"]
+omni_range = 15.0
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LavaPools/Lava3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.022, 0.488)
 shape = SubResource("ConvexPolygonShape3D_lctwr")
-
-[node name="OmniLight3D" parent="LavaPools/Lava3" index="2"]
-omni_range = 15.0
 
 [node name="Decoration" type="Node3D" parent="."]
 
@@ -994,6 +994,11 @@ light_energy = 2.0
 light_specular = 0.75
 shadow_enabled = true
 omni_attenuation = 0.25
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 27.5, 2.5, 13)
+
+[connection signal="area_entered" from="Area3D" to="Player" method="_on_area_3d_area_entered"]
 
 [editable path="LavaPools/Lava"]
 [editable path="LavaPools/Lava2"]

@@ -90,3 +90,7 @@ func handle_camera_rotation() -> void:
 		camera_pivot.rotation_degrees.x, -90.0, 90.0
 	)
 	mouse_motion = Vector2.ZERO
+
+
+func _on_area_3d_area_entered(_area:Area3D) -> void:
+	get_tree().reload_current_scene()
