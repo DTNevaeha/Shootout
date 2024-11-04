@@ -80,8 +80,10 @@ func _input(event: InputEvent) -> void:
 				mouse_motion *= aim_multiplier
 	if Input.MOUSE_MODE_CAPTURED:
 		if event.is_action_pressed("ui_cancel"):
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-
+			if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			else: 
+				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func handle_camera_rotation() -> void:
 	rotate_y(mouse_motion.x)
@@ -92,5 +94,5 @@ func handle_camera_rotation() -> void:
 	mouse_motion = Vector2.ZERO
 
 
-func _on_area_3d_area_entered(_area:Area3D) -> void:
+func _on_area_3d_body_entered(_body:Node3D) -> void:
 	get_tree().reload_current_scene()

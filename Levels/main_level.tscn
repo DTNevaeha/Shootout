@@ -63,8 +63,8 @@ size = Vector2(11, 5)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_lctwr"]
 points = PackedVector3Array(-5.5, 0, -2.5, -5.5, 0, 2.5, 5.5, 0, -2.5, 5.5, 0, 2.5)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_htxkb"]
-size = Vector3(1000, 1000, 1000)
+[sub_resource type="BoxShape3D" id="BoxShape3D_laqg4"]
+size = Vector3(10, 5, 4)
 
 [node name="MainLevel" type="Node3D"]
 
@@ -999,13 +999,14 @@ shadow_enabled = true
 omni_attenuation = 0.25
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 27.5, 2.5, 13)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 2.5, 13)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-shape = SubResource("BoxShape3D_htxkb")
+shape = SubResource("BoxShape3D_laqg4")
 
-[connection signal="area_entered" from="Area3D" to="Player" method="_on_area_3d_area_entered"]
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+
+[connection signal="body_entered" from="Area3D" to="Player" method="_on_area_3d_body_entered"]
 
 [editable path="LavaPools/Lava"]
 [editable path="LavaPools/Lava2"]
